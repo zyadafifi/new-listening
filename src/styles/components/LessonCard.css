@@ -1,0 +1,306 @@
+/* Lesson Card Component Styles */
+.lesson-card-modern {
+  background: var(--color-white);
+  border-radius: var(--radius-3xl);
+  padding: var(--spacing-6);
+  box-shadow: 0 4px 20px rgba(99, 162, 155, 0.1);
+  border: 1px solid rgba(99, 162, 155, 0.15);
+  transition: all var(--transition-spring);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  width: 100%;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  backdrop-filter: blur(10px);
+}
+
+.lesson-card-modern::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-primary-dark),
+    var(--color-primary)
+  );
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.lesson-card-modern:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(99, 162, 155, 0.2);
+  border-color: rgba(99, 162, 155, 0.4);
+}
+
+.lesson-card-modern:hover::before {
+  opacity: 1;
+}
+
+.lesson-card-modern.locked {
+  background: linear-gradient(
+    135deg,
+    var(--color-gray-50),
+    var(--color-gray-100)
+  );
+  border-color: var(--color-gray-200);
+  opacity: 0.7;
+}
+
+.lesson-card-modern.completed {
+  border-color: var(--color-success);
+  background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+}
+
+.lesson-card-modern.unlocked {
+  border-color: var(--color-info);
+  background: linear-gradient(135deg, #f8faff, #f0f4ff);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+}
+
+/* Card Content */
+.lesson-card-content-modern {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+.lesson-card-title-modern {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-900);
+  line-height: var(--line-height-snug);
+  margin: 0;
+  margin-bottom: var(--spacing-2);
+}
+
+.lesson-card-description-modern {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+  margin-bottom: var(--spacing-3);
+}
+
+/* Progress Section */
+.lesson-progress-modern {
+  margin: var(--spacing-2) 0 var(--spacing-3) 0;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-2);
+}
+
+.progress-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.progress-percentage {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-dark) !important;
+}
+
+.progress-bar-modern {
+  background: var(--color-gray-200);
+  height: 8px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill-modern {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-primary-dark),
+    var(--color-primary)
+  );
+  height: 100%;
+  border-radius: var(--radius-md);
+  transition: width 0.6s var(--transition-bounce);
+  position: relative;
+}
+
+.progress-fill-modern::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+/* Stats */
+.lesson-card-stats-modern {
+  display: flex;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-3);
+  margin-bottom: var(--spacing-3);
+}
+
+.stat-item-modern {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-600);
+  font-weight: var(--font-weight-medium);
+}
+
+.stat-icon {
+  font-size: var(--font-size-base);
+  opacity: 0.8;
+}
+
+.stat-text {
+  font-size: var(--font-size-xs);
+}
+
+/* Action Button */
+.lesson-card-action-modern {
+  margin-top: auto;
+  padding-top: var(--spacing-4);
+}
+
+.lesson-card-button-modern {
+  width: 100%;
+  background: var(--gradient-primary);
+  color: var(--color-white);
+  border: none;
+  padding: var(--spacing-3) var(--spacing-5);
+  border-radius: var(--radius-xl);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--transition-bounce);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  box-shadow: var(--shadow-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.lesson-card-button-modern::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.lesson-card-button-modern:hover:not(.disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 162, 155, 0.4);
+  background: var(--gradient-button-hover);
+}
+
+.lesson-card-button-modern:hover:not(.disabled)::before {
+  left: 100%;
+}
+
+.lesson-card-button-modern.disabled {
+  background: linear-gradient(
+    135deg,
+    var(--color-gray-400),
+    var(--color-gray-500)
+  );
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+  box-shadow: 0 2px 8px rgba(156, 163, 175, 0.3);
+}
+
+.button-icon {
+  font-size: var(--font-size-base);
+  transition: transform var(--transition-normal);
+}
+
+.lesson-card-modern:hover .button-icon {
+  transform: scale(1.1);
+}
+
+.button-text {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .lesson-card-modern {
+    min-height: 260px;
+    padding: var(--spacing-5);
+  }
+}
+
+@media (max-width: 768px) {
+  .lesson-card-modern {
+    min-height: 240px;
+    padding: var(--spacing-4);
+  }
+
+  .lesson-card-title-modern {
+    font-size: var(--font-size-lg);
+  }
+
+  .lesson-card-description-modern {
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .lesson-card-modern {
+    min-height: 200px;
+    padding: var(--spacing-3);
+  }
+
+  .lesson-card-title-modern {
+    font-size: var(--font-size-base);
+  }
+
+  .lesson-card-description-modern {
+    font-size: var(--font-size-xs);
+  }
+
+  .lesson-card-stats-modern {
+    gap: var(--spacing-2);
+  }
+
+  .stat-item-modern {
+    font-size: var(--font-size-xs);
+  }
+}

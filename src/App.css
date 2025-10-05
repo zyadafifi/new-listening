@@ -1,0 +1,20 @@
+/* App.css - Minimal Global Styles */
+/* 
+ * This file now contains only essential global styles that are not 
+ * component-specific. All other styles have been moved to the organized 
+ * CSS architecture in src/styles/
+ */
+
+/* Global App Container */
+.App {
+  text-align: center;
+}
+
+/* App-specific overrides if needed */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Any app-level specific styles can be added here */

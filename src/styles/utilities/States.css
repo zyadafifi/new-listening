@@ -1,0 +1,461 @@
+/* State Utility Styles */
+
+/* Hover States */
+.hover-scale:hover {
+  transform: scale(1.05);
+  transition: transform var(--transition-normal);
+}
+
+.hover-scale-lg:hover {
+  transform: scale(1.1);
+  transition: transform var(--transition-normal);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  transition: transform var(--transition-normal);
+}
+
+.hover-lift-lg:hover {
+  transform: translateY(-4px);
+  transition: transform var(--transition-normal);
+}
+
+.hover-shadow:hover {
+  box-shadow: var(--shadow-lg);
+  transition: box-shadow var(--transition-normal);
+}
+
+.hover-shadow-xl:hover {
+  box-shadow: var(--shadow-xl);
+  transition: box-shadow var(--transition-normal);
+}
+
+.hover-opacity:hover {
+  opacity: 0.8;
+  transition: opacity var(--transition-normal);
+}
+
+.hover-opacity-50:hover {
+  opacity: 0.5;
+  transition: opacity var(--transition-normal);
+}
+
+.hover-brightness:hover {
+  filter: brightness(1.1);
+  transition: filter var(--transition-normal);
+}
+
+.hover-saturate:hover {
+  filter: saturate(1.2);
+  transition: filter var(--transition-normal);
+}
+
+/* Active States */
+.active-scale:active {
+  transform: scale(0.95);
+  transition: transform var(--transition-fast);
+}
+
+.active-scale-lg:active {
+  transform: scale(0.9);
+  transition: transform var(--transition-fast);
+}
+
+.active-lift:active {
+  transform: translateY(1px);
+  transition: transform var(--transition-fast);
+}
+
+.active-shadow:active {
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-fast);
+}
+
+/* Focus States */
+.focus-ring:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.focus-ring-offset:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+.focus-ring-inset:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+.focus-shadow:focus {
+  box-shadow: var(--focus-ring);
+}
+
+.focus-scale:focus {
+  transform: scale(1.02);
+  transition: transform var(--transition-normal);
+}
+
+/* Disabled States */
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.disabled-opacity {
+  opacity: 0.4;
+}
+
+.disabled-blur {
+  filter: blur(1px);
+}
+
+.disabled-grayscale {
+  filter: grayscale(100%);
+}
+
+/* Loading States */
+.loading {
+  position: relative;
+  color: transparent;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-dots {
+  position: relative;
+}
+
+.loading-dots::after {
+  content: "...";
+  animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+  0%,
+  20% {
+    content: ".";
+  }
+  40% {
+    content: "..";
+  }
+  60%,
+  100% {
+    content: "...";
+  }
+}
+
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.loading-bounce {
+  animation: bounce 1s infinite;
+}
+
+/* Error States */
+.error {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.error-text {
+  color: var(--color-error);
+}
+
+.error-bg {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.error-border {
+  border-color: var(--color-error);
+}
+
+/* Success States */
+.success {
+  border-color: var(--color-success);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.success-text {
+  color: var(--color-success);
+}
+
+.success-bg {
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.success-border {
+  border-color: var(--color-success);
+}
+
+/* Warning States */
+.warning {
+  border-color: var(--color-warning);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+.warning-text {
+  color: var(--color-warning);
+}
+
+.warning-bg {
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.warning-border {
+  border-color: var(--color-warning);
+}
+
+/* Info States */
+.info {
+  border-color: var(--color-info);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.info-text {
+  color: var(--color-info);
+}
+
+.info-bg {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.info-border {
+  border-color: var(--color-info);
+}
+
+/* Selected States */
+.selected {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.selected-border {
+  border-color: var(--color-primary);
+}
+
+.selected-shadow {
+  box-shadow: var(--shadow-primary);
+}
+
+/* Checked States */
+.checked {
+  background-color: var(--color-success);
+  color: var(--color-white);
+}
+
+.checked-border {
+  border-color: var(--color-success);
+}
+
+.checked-shadow {
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Indeterminate States */
+.indeterminate {
+  background-color: var(--color-gray-400);
+  color: var(--color-white);
+}
+
+.indeterminate-border {
+  border-color: var(--color-gray-400);
+}
+
+/* Read-only States */
+.readonly {
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-600);
+  cursor: default;
+}
+
+.readonly-border {
+  border-color: var(--color-gray-300);
+}
+
+/* Required States */
+.required {
+  position: relative;
+}
+
+.required::after {
+  content: " *";
+  color: var(--color-error);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Optional States */
+.optional {
+  position: relative;
+}
+
+.optional::after {
+  content: " (optional)";
+  color: var(--color-gray-500);
+  font-size: var(--font-size-xs);
+  font-style: italic;
+}
+
+/* Valid States */
+.valid {
+  border-color: var(--color-success);
+  background-color: rgba(16, 185, 129, 0.05);
+}
+
+.valid-text {
+  color: var(--color-success);
+}
+
+/* Invalid States */
+.invalid {
+  border-color: var(--color-error);
+  background-color: rgba(239, 68, 68, 0.05);
+}
+
+.invalid-text {
+  color: var(--color-error);
+}
+
+/* Pending States */
+.pending {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.pending-bg {
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.pending-border {
+  border-color: var(--color-warning);
+}
+
+/* Complete States */
+.complete {
+  background-color: var(--color-success);
+  color: var(--color-white);
+}
+
+.complete-border {
+  border-color: var(--color-success);
+}
+
+.complete-shadow {
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Incomplete States */
+.incomplete {
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-600);
+}
+
+.incomplete-border {
+  border-color: var(--color-gray-300);
+}
+
+/* Interactive States */
+.interactive {
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.interactive:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.interactive:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Non-interactive States */
+.non-interactive {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* State Transitions */
+.state-transition {
+  transition: all var(--transition-normal);
+}
+
+.state-transition-fast {
+  transition: all var(--transition-fast);
+}
+
+.state-transition-slow {
+  transition: all var(--transition-slow);
+}
+
+/* State Combinations */
+.hover-lift-shadow:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-normal);
+}
+
+.hover-scale-shadow:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-normal);
+}
+
+.active-lift-shadow:active {
+  transform: translateY(1px);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.focus-ring-shadow:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  box-shadow: var(--focus-ring);
+}
+
+/* Responsive States */
+@media (max-width: 768px) {
+  .hover-lift-mobile:hover {
+    transform: none;
+  }
+
+  .hover-scale-mobile:hover {
+    transform: none;
+  }
+
+  .hover-shadow-mobile:hover {
+    box-shadow: var(--shadow-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .hover-lift-mobile:hover {
+    transform: none;
+  }
+
+  .hover-scale-mobile:hover {
+    transform: none;
+  }
+
+  .hover-shadow-mobile:hover {
+    box-shadow: var(--shadow-sm);
+  }
+}
+
