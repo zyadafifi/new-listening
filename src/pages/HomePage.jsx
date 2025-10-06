@@ -4,7 +4,6 @@ import LessonCard from "../components/LessonCard";
 import Header from "../components/Header";
 import TipsPanel from "../components/TipsPanel";
 import useProgress from "../hooks/useProgress";
-import "../styles/pages/HomePage.css";
 
 const HomePage = () => {
   const [showTips, setShowTips] = useState(false);
@@ -68,24 +67,24 @@ const HomePage = () => {
     <div className="min-h-screen">
       <Header onToggleTips={() => setShowTips(!showTips)} />
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-5 py-6 sm:py-8">
         {/* Hero Section */}
-        <div className="hero-section text-white py-8 rounded-2xl mb-8 shadow-xl relative overflow-hidden">
+        <div className="relative overflow-hidden bg-[linear-gradient(135deg,#63a29b_0%,#275151_100%)] rounded-xl sm:rounded-2xl py-6 sm:py-10 mb-6 sm:mb-8 shadow-[0_10px_30px_rgba(39,81,81,0.15)] text-center text-white before:absolute before:-top-1/2 before:-left-1/2 before:w-[200%] before:h-[200%] before:bg-[radial-gradient(circle,rgba(255,255,255,0.08)_0%,transparent_70%)] before:animate-float">
           <div className="absolute inset-0 bg-black/10"></div>
           <div className="relative z-10">
             <div className="text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6 bg-[linear-gradient(135deg,#ffffff_0%,#e6f7f5_100%)] bg-clip-text text-transparent leading-tight">
                 SNA Academy
               </h1>
-              <p className="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto mb-6">
+              <p className="text-lg sm:text-xl lg:text-2xl text-white/90 max-w-[800px] mx-auto mb-6 sm:mb-8 leading-relaxed font-normal px-4">
                 Master English through Interactive Listening and Dictation
               </p>
-              
+
               {/* Compact Progress */}
-              <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-5 max-w-md mx-auto border border-white/20">
-                <div className="flex items-center justify-center gap-8">
+              <div className="bg-white/15 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 max-w-sm sm:max-w-md mx-auto border border-white/20">
+                <div className="flex items-center justify-center gap-6 sm:gap-8">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-white mb-1">
+                    <div className="text-2xl sm:text-3xl font-bold text-white mb-1">
                       {progress.completed}
                     </div>
                     <div className="text-emerald-300 font-medium text-xs uppercase tracking-wide">
@@ -94,7 +93,7 @@ const HomePage = () => {
                   </div>
 
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-white mb-1">
+                    <div className="text-2xl sm:text-3xl font-bold text-white mb-1">
                       {progress.total - progress.completed}
                     </div>
                     <div className="text-slate-300 font-medium text-xs uppercase tracking-wide">
@@ -109,10 +108,10 @@ const HomePage = () => {
 
         {/* Lessons Grid */}
         <div className="lessons-section">
-          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 sm:mb-8 text-center">
             Available Lessons
           </h2>
-          <div className="lessons-grid">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-10 p-0">
             {lessons.map((lesson, index) => (
               <div
                 key={lesson.id}
@@ -132,11 +131,11 @@ const HomePage = () => {
 
         {/* Load More Button */}
         {hasMore && (
-          <div className="load-more-container mt-12">
+          <div className="text-center mt-8 sm:mt-12">
             <button
               onClick={handleLoadMore}
               disabled={loading}
-              className="load-more-button"
+              className="bg-[linear-gradient(135deg,#63a29b_0%,#275151_100%)] text-white font-semibold px-6 sm:px-10 py-3 sm:py-4 rounded-xl sm:rounded-2xl border-none cursor-pointer transition-all duration-300 text-base sm:text-lg shadow-[0_8px_25px_rgba(99,162,155,0.3)] relative overflow-hidden backdrop-blur-sm hover:-translate-y-1 hover:scale-105 hover:shadow-[0_12px_30px_rgba(99,162,155,0.4)] hover:bg-[linear-gradient(45deg,#275151,#63a29b)] disabled:bg-[linear-gradient(135deg,#94a3b8,#64748b)] disabled:cursor-not-allowed disabled:transform-none disabled:shadow-[0_4px_12px_rgba(156,163,175,0.3)] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent)] before:transition-[left] before:duration-[0.6s] before:ease-in-out hover:before:left-full disabled:before:hidden"
             >
               {loading ? (
                 <div className="flex items-center gap-3">

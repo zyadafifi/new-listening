@@ -5,7 +5,6 @@ import ProgressTracker from "../ProgressTracker";
 import FeedbackDisplay from "../FeedbackDisplay";
 import soundEffects from "../../utils/soundEffects";
 import dataService from "../../services/dataService";
-import "../../styles/phases/DictationPhase.css";
 
 const DictationPhase = ({ lesson, onComplete }) => {
   const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
@@ -221,11 +220,14 @@ const DictationPhase = ({ lesson, onComplete }) => {
 
   if (!currentExercise) {
     return (
-      <div className="card text-center">
+      <div className="bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">
           No exercises available
         </h2>
-        <button onClick={onComplete} className="btn-primary">
+        <button
+          onClick={onComplete}
+          className="bg-gradient-to-r from-teal-500 to-teal-700 text-white border-none px-6 py-3 rounded-xl font-semibold cursor-pointer transition-all duration-300 shadow-lg hover:-translate-y-1 hover:scale-105 hover:shadow-xl hover:from-teal-600 hover:to-teal-800"
+        >
           Return to Lessons
         </button>
       </div>
@@ -233,14 +235,16 @@ const DictationPhase = ({ lesson, onComplete }) => {
   }
 
   return (
-    <div className="dictation-phase-simple">
-      <h2 className="dictation-title-simple">✏️ Dictation Phase</h2>
+    <div className="max-w-[800px] mx-auto">
+      <h2 className="text-4xl text-[#275151] text-center mb-6">
+        ✏️ Dictation Phase
+      </h2>
 
       {/* Progress Section */}
-      <div className="progress-simple">
-        <div className="progress-bar-simple">
+      <div className="bg-white border border-[#e2e8f0] rounded-lg p-5 mb-6">
+        <div className="w-full h-2 bg-[#e2e8f0] rounded-md overflow-hidden mb-3">
           <div
-            className="progress-fill-simple"
+            className="h-full bg-[#63a29b] rounded-md transition-[width] duration-300"
             style={{
               width: `${
                 ((currentExerciseIndex + 1) / lesson.exercises.length) * 100
@@ -248,36 +252,44 @@ const DictationPhase = ({ lesson, onComplete }) => {
             }}
           />
         </div>
-        <div className="exercise-counter-simple">
+        <div className="text-center text-[#275151] font-semibold text-sm">
           Exercise {currentExerciseIndex + 1} of {lesson.exercises.length}
         </div>
       </div>
 
       {/* Audio Section */}
-      <div className="audio-section-simple">
-        <h3>Listen to the Sentence</h3>
-        <AudioControls
-          audioUrl={currentExercise.audio}
-          isPlaying={isPlaying}
-          onPlayPause={() => setIsPlaying(!isPlaying)}
-          onVolumeChange={(volume) => console.log("Volume:", volume)}
-          onSpeedChange={(speed) => console.log("Speed:", speed)}
-        />
-      </div>
+      {!showFeedback && (
+        <div className="bg-white border border-[#e2e8f0] rounded-lg p-5 mb-6 text-center">
+          <h3 className="text-[#275151] mb-4 text-xl">
+            Listen to the Sentence
+          </h3>
+          <AudioControls
+            audioUrl={currentExercise.audio}
+            isPlaying={isPlaying}
+            onPlayPause={() => setIsPlaying(!isPlaying)}
+            onVolumeChange={(volume) => console.log("Volume:", volume)}
+            onSpeedChange={(speed) => console.log("Speed:", speed)}
+          />
+        </div>
+      )}
 
       {/* Mode Selection */}
       {!selectedMode && (
-        <div className="mode-selector-simple">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 mb-6">
           {modes.map((mode) => (
             <button
               key={mode.id}
               onClick={() => handleModeSelect(mode.id)}
-              className="mode-button-simple"
+              className="bg-white border-2 border-[#e2e8f0] rounded-lg p-4 cursor-pointer transition-all duration-300 text-left flex items-center gap-3 hover:border-[#63a29b] hover:bg-[#f8fafc]"
             >
-              <span className="mode-icon-simple">{mode.icon}</span>
-              <div className="mode-info-simple">
-                <span className="mode-name-simple">{mode.name}</span>
-                <span className="mode-desc-simple">{mode.description}</span>
+              <span className="text-2xl">{mode.icon}</span>
+              <div className="flex flex-col gap-1">
+                <span className="font-semibold text-[#275151] text-base">
+                  {mode.name}
+                </span>
+                <span className="text-[#475569] text-sm">
+                  {mode.description}
+                </span>
               </div>
             </button>
           ))}
@@ -285,7 +297,7 @@ const DictationPhase = ({ lesson, onComplete }) => {
       )}
 
       {/* Exercise Area */}
-      {selectedMode && (
+      {selectedMode && !showFeedback && (
         <ExerciseArea
           mode={selectedMode}
           exercise={currentExercise}

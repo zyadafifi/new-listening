@@ -6,7 +6,7 @@ import LessonPage from "./pages/LessonPage";
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="text-center">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/lesson/:id" element={<LessonPage />} />

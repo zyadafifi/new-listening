@@ -1,7 +1,8 @@
-/* Import the organized CSS architecture */
-@import "./styles/main.css";
-
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   * {
@@ -11,7 +12,7 @@
   }
 
   body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background: #fff;
     min-height: 100vh;
     color: #333;
@@ -24,179 +25,6 @@
 }
 
 @layer components {
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    width: 100%;
-  }
-
-  @media (max-width: 768px) {
-    .container {
-      padding: 15px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .container {
-      padding: 10px;
-    }
-  }
-
-  .header {
-    text-align: center;
-    color: white;
-    margin-bottom: 30px;
-    padding: 20px 0;
-  }
-
-  .header h1 {
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    word-wrap: break-word;
-  }
-
-  .header p {
-    font-size: clamp(1rem, 3vw, 1.2rem);
-    opacity: 0.9;
-    padding: 0 10px;
-    line-height: 1.4;
-    word-wrap: break-word;
-  }
-
-  @media (max-width: 768px) {
-    .header {
-      margin-bottom: 25px;
-      padding: 15px 0;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .header {
-      margin-bottom: 20px;
-      padding: 10px 0;
-    }
-  }
-
-  .btn-primary {
-    background: linear-gradient(45deg, #63a29b, #275151);
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(99, 162, 155, 0.4);
-    backdrop-filter: blur(10px);
-    min-height: 44px;
-    min-width: 44px;
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(99, 162, 155, 0.6);
-    background: linear-gradient(45deg, #275151, #63a29b);
-  }
-
-  @media (max-width: 768px) {
-    .btn-primary {
-      padding: 10px 18px;
-      font-size: 0.95rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .btn-primary {
-      padding: 8px 16px;
-      font-size: 0.9rem;
-      min-height: 48px;
-    }
-  }
-
-  .btn-secondary {
-    background: white;
-    border: 2px solid #63a29b;
-    color: #63a29b;
-    padding: 12px 20px;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    font-weight: 500;
-    font-size: 1rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .btn-secondary:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 25px rgba(99, 162, 155, 0.3);
-    border-color: #275151;
-    color: white;
-    background: linear-gradient(135deg, #63a29b, #275151);
-  }
-
-  .card {
-    background: white;
-    border-radius: 20px;
-    padding: clamp(20px, 4vw, 40px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    backdrop-filter: blur(10px);
-    width: 100%;
-    overflow: hidden;
-  }
-
-  @media (max-width: 768px) {
-    .card {
-      padding: clamp(15px, 3vw, 25px);
-      border-radius: 15px;
-      margin-bottom: 15px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .card {
-      padding: clamp(12px, 2.5vw, 20px);
-      border-radius: 12px;
-      margin-bottom: 12px;
-    }
-  }
-
-  .input-field {
-    width: 100%;
-    padding: clamp(15px, 3vw, 20px);
-    border: 2px solid #e5e7eb;
-    border-radius: 12px;
-    font-size: clamp(1rem, 2.5vw, 1.1rem);
-    resize: vertical;
-    min-height: clamp(100px, 15vw, 120px);
-    font-family: inherit;
-    transition: border-color 0.3s ease;
-  }
-
-  .input-field:focus {
-    outline: none;
-    border-color: #63a29b;
-    box-shadow: 0 0 0 3px rgba(99, 162, 155, 0.1);
-  }
-
-  .dictation-container {
-    max-width: 900px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
   .animate-fade-in-up {
     animation: fadeInUp 0.3s ease-out;
   }
@@ -232,5 +60,134 @@
       opacity: 1;
       transform: scale(1);
     }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Custom slider styling for AudioControls */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #5fa69c;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(95, 166, 156, 0.3);
+    margin-top: -6px;
+    border: none;
+  }
+
+  input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 3px 6px rgba(95, 166, 156, 0.4);
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #5fa69c;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(95, 166, 156, 0.3);
+  }
+
+  input[type="range"]::-moz-range-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 3px 6px rgba(95, 166, 156, 0.4);
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px;
+    border-radius: 10px;
+    border: none;
+    background: transparent;
+  }
+
+  input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 6px;
+    border-radius: 10px;
+    border: none;
+    background: transparent;
+  }
+
+  input[type="range"]::-moz-range-progress {
+    height: 6px;
+    border-radius: 10px;
+  }
+
+  /* Word highlighting styles for FeedbackDisplay */
+  .word-correct {
+    background: #dcfce7;
+    color: #166534;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  .word-incorrect {
+    background: #fef2f2;
+    color: #991b1b;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: line-through;
+  }
+
+  .word-missing {
+    background: #fef3c7;
+    color: #92400e;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: 600;
+    border: 2px dashed #f59e0b;
+  }
+
+  .word-extra {
+    background: #fce7f3;
+    color: #be185d;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: 600;
+    border: 2px solid #ec4899;
+  }
+
+  .word-should-be {
+    background: #dbeafe;
+    color: #1e40af;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: 600;
+    border: 2px solid #3b82f6;
   }
 }

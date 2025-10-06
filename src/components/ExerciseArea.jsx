@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/components/ExerciseArea.css";
 
 const ExerciseArea = ({
   mode,
@@ -16,39 +15,19 @@ const ExerciseArea = ({
     onChoiceSelect(index);
   };
 
-  const getChoiceButtonClass = (index) => {
-    let baseClass =
-      "w-full p-4 text-left border-2 rounded-xl transition-all duration-300 hover:shadow-md ";
-
-    if (selectedChoice === index) {
-      baseClass += "border-sna-teal-500 bg-sna-teal-50 text-sna-teal-800";
-    } else {
-      baseClass += "border-gray-200 bg-white hover:border-sna-teal-300";
-    }
-
-    return baseClass;
-  };
-
   return (
-    <div className="exercise-area">
+    <div className="space-y-6">
       {/* Exercise Content */}
       {mode === "writing" && (
         <div>
-          <label
-            style={{
-              display: "block",
-              marginBottom: "15px",
-              fontWeight: "600",
-              color: "#374151",
-            }}
-          >
+          <label className="block mb-4 font-semibold text-gray-700">
             Type what you heard:
           </label>
           <textarea
             value={userAnswer}
             onChange={(e) => onAnswerChange(e.target.value)}
             placeholder="Type the sentence you heard here..."
-            className="text-input"
+            className="w-full p-4 border-2 border-gray-200 rounded-xl text-base resize-vertical min-h-[120px] font-inherit transition-colors duration-300 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200"
             spellCheck="false"
             autoCorrect="off"
             autoCapitalize="off"
@@ -61,23 +40,18 @@ const ExerciseArea = ({
 
       {mode === "choice" && (
         <div>
-          <p
-            style={{
-              marginBottom: "20px",
-              fontWeight: "600",
-              color: "#374151",
-              textAlign: "center",
-            }}
-          >
+          <p className="mb-5 font-semibold text-gray-700 text-center">
             Choose the correct sentence:
           </p>
-          <div className="choices-container">
+          <div className="space-y-3">
             {exercise.choices.map((choice, index) => (
               <button
                 key={index}
                 onClick={() => handleChoiceClick(index)}
-                className={`choice-button ${
-                  selectedChoice === index ? "selected" : ""
+                className={`w-full p-4 text-left border-2 rounded-xl transition-all duration-300 hover:shadow-md ${
+                  selectedChoice === index
+                    ? "border-teal-500 bg-teal-50 text-teal-800"
+                    : "border-gray-200 bg-white hover:border-teal-300"
                 }`}
               >
                 {choice}
@@ -89,26 +63,29 @@ const ExerciseArea = ({
 
       {/* Action Buttons */}
       {!showFeedback && (
-        <div className="control-buttons">
+        <div className="flex gap-4 justify-center">
           <button
             onClick={onSubmit}
             disabled={
               (mode === "writing" && !userAnswer.trim()) ||
               (mode === "choice" && selectedChoice === null)
             }
-            className={`control-button check ${
+            className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
               (mode === "writing" && !userAnswer.trim()) ||
               (mode === "choice" && selectedChoice === null)
-                ? "disabled"
-                : ""
+                ? "bg-gray-400 text-gray-600 cursor-not-allowed"
+                : "bg-gradient-to-r from-teal-500 to-teal-700 text-white hover:-translate-y-1 hover:shadow-lg hover:from-teal-600 hover:to-teal-800"
             }`}
           >
-            <span className="icon-check">✓</span>
+            <span className="text-lg">✓</span>
             Check Answer
           </button>
 
-          <button onClick={onReset} className="control-button">
-            <span className="icon-reset">↻</span>
+          <button
+            onClick={onReset}
+            className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold bg-white border-2 border-gray-300 text-gray-700 hover:border-teal-300 hover:text-teal-700 transition-all duration-300"
+          >
+            <span className="text-lg">↻</span>
             Reset
           </button>
         </div>
