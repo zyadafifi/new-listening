@@ -1,8 +1,8 @@
 // Sound effects utility
 class SoundEffects {
   constructor() {
-    this.rightAnswerSound = new Audio("/src/assets/audio/right answer SFX.wav");
-    this.wrongAnswerSound = new Audio("/src/assets/audio/wrong answer SFX.wav");
+    this.rightAnswerSound = new Audio("/audio/right answer SFX.wav");
+    this.wrongAnswerSound = new Audio("/audio/wrong answer SFX.wav");
 
     // Preload sounds
     this.rightAnswerSound.preload = "auto";
@@ -45,4 +45,3 @@ class SoundEffects {
 const soundEffects = new SoundEffects();
 
 export default soundEffects;
-
