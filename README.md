@@ -97,20 +97,24 @@ src/
 │   ├── ExerciseArea.jsx
 │   ├── FeedbackDisplay.jsx
 │   ├── Header.jsx
-│   ├── KeyboardShortcuts.jsx
 │   ├── LessonCard.jsx
 │   └── TipsPanel.jsx
 ├── pages/               # Page components
 │   ├── HomePage.jsx
 │   └── LessonPage.jsx
 ├── hooks/               # Custom React hooks
-│   └── useKeyboardShortcuts.js
+│   └── useProgress.js
 ├── utils/               # Utility functions
 │   └── soundEffects.js
 ├── data/                # Data and configuration
-│   └── lessons.js
-├── assets/              # Static assets
-│   └── audio/           # Sound effects
+│   └── lessons.json
+├── styles/              # CSS styles and components
+│   ├── base/           # Base styles (variables, reset, typography)
+│   ├── components/     # Component-specific styles
+│   ├── layouts/        # Layout styles
+│   ├── pages/          # Page-specific styles
+│   ├── phases/         # Lesson phase styles
+│   └── utilities/      # Utility classes
 ├── App.jsx              # Main app component
 ├── main.jsx             # App entry point
 └── index.css            # Global styles with Tailwind
@@ -164,7 +168,7 @@ The application is built with a mobile-first approach:
 
 ### Adding New Lessons
 
-Edit `src/data/lessons.js` to add new lessons:
+Edit `src/data/lessons.json` to add new lessons:
 
 ```javascript
 {
@@ -183,7 +187,7 @@ Edit `src/data/lessons.js` to add new lessons:
 
 ### Modifying Tips
 
-Update the `tipsDatabase` in `src/data/lessons.js`:
+Update the `tipsDatabase` in `src/data/lessons.json`:
 
 ```javascript
 tipsDatabase: {

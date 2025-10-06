@@ -78,7 +78,7 @@
         {
           "id": 6,
           "text": "Good morning, how are you today?",
-          "audio": "https://cdn13674550.b-cdn.net/SNA-audio/lesson%202/greeting%201.mp3",
+          "audio": "https://cdn13674550.b-cdn.net/SNA-audio/lesson%201/pronounce%201.mp3",
           "choices": [
             "Good morning, how are you today?",
             "Good morning, how is you today?",
@@ -89,7 +89,7 @@
         {
           "id": 7,
           "text": "Nice to meet you, my name is Sarah.",
-          "audio": "https://cdn13674550.b-cdn.net/SNA-audio/lesson%202/greeting%202.mp3",
+          "audio": "https://cdn13674550.b-cdn.net/SNA-audio/lesson%201/pronounce%201.mp3",
           "choices": [
             "Nice to meet you, my name is Sarah.",
             "Nice to meet you, my name are Sarah.",
@@ -100,7 +100,7 @@
         {
           "id": 8,
           "text": "Thank you very much for your help.",
-          "audio": "https://cdn13674550.b-cdn.net/SNA-audio/lesson%202/greeting%203.mp3",
+          "audio": "https://cdn13674550.b-cdn.net/SNA-audio/lesson%201/pronounce%201.mp3",
           "choices": [
             "Thank you very much for your help.",
             "Thank you very much for you help.",
@@ -111,7 +111,7 @@
         {
           "id": 9,
           "text": "Excuse me, where is the bathroom?",
-          "audio": "https://cdn13674550.b-cdn.net/SNA-audio/lesson%202/greeting%204.mp3",
+          "audio": "https://cdn13674550.b-cdn.net/SNA-audio/lesson%201/pronounce%201.mp3",
           "choices": [
             "Excuse me, where is the bathroom?",
             "Excuse me, where are the bathroom?",
@@ -122,7 +122,7 @@
         {
           "id": 10,
           "text": "Have a great day and see you later!",
-          "audio": "https://cdn13674550.b-cdn.net/SNA-audio/lesson%202/greeting%205.mp3",
+          "audio": "https://cdn13674550.b-cdn.net/SNA-audio/lesson%201/pronounce%201.mp3",
           "choices": [
             "Have a great day and see you later!",
             "Have a great day and see you latter!",
